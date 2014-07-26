@@ -1,0 +1,52 @@
+#ifndef _LCD_H_
+#define _LCD_H_
+
+/* See http://3dbrew.org/wiki/LCD */
+
+#define MAIN_SCREEN_WIDTH 400
+#define MAIN_SCREEN_HEIGHT 240
+#define MAIN_SCREEN_SIZE (MAIN_SCREEN_WIDTH*MAIN_SCREEN_HEIGHT)
+#define SUB_SCREEN_WIDTH 320
+#define SUB_SCREEN_HEIGHT 240
+#define SUB_SCREEN_SIZE (SUB_SCREEN_WIDTH*SUB_SCREEN_HEIGHT)
+
+#define SHARED_MEM	0x10000000
+#define GSP_SHARED_MEM	0x10002000
+
+/* LCD Fill Color */
+#define REG_LCDCOLORFILLMAIN	0x202204
+#define REG_LCDCOLORFILLSUB	0x202A04
+#define RGB_COLOR(r,g,b)	((r)|(g<<8)|(b<<16))
+#define RGB_FILL_COLOR(r,g,b)	RGB_COLOR(r,g,b)|(1<<24)
+
+/* Framebuffers */
+#define REG_MAINLEFTFB	0x400468
+#define REG_MAINRIGHTFB	0x400494
+#define REG_SUBFB	0x400568
+/* convert PA to VA (assuming FB in VRAM) */
+#define FB_PA_TO_VA(fb)	fb+=0x7000000
+
+#define REG_MAINFB_SIZE 0x40045C
+#define REG_MAINFB_WIDTH 0x40045C
+#define REG_MAINFB_HEIGHT 0x40045E
+#define REG_MAINFB_FORMAT 0x400470
+#define REG_MAINFB_SELECT 0x400478
+#define REG_MAINFB_BYTEWIDTH 0x400490	/* fb width * pixel byte size  */
+
+#define REG_SUBFB_SIZE 0x40055C
+#define REG_SUBFB_WIDTH 0x40055C
+#define REG_SUBFB_HEIGHT 0x40055E
+#define REG_SUBFB_FORMAT 0x400570
+#define REG_SUBFB_SELECT 0x400578
+#define REG_SUBFB_BYTEWIDTH 0x400590
+
+/* Framebuffer Color Formats */
+typedef enum ColorFormat {
+	GL_RGBA8_OES,
+	GL_RGB8_OES,	//BGR
+	GL_RGB565_OES,	//RGB
+	GL_RGB5_A1_OES,
+	GL_RGBA4_OES,
+} ColorFormat;
+
+#endif

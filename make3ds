@@ -1,0 +1,15 @@
+
+TARGET := demo
+
+ELFFILE := $(TARGET).elf
+CCIFILE := $(TARGET).3ds
+DEV := c:/3dsdev
+MAKEROM := $(DEV)/makerom
+GW_WORKAROUND := gw_workaround.rsf
+ICON := $(TARGET).icn
+BANNER := $(TARGET).bnr
+
+.PHONY:=all
+
+all:
+	$(MAKEROM) -f cci -o $(CCIFILE) -rsf $(GW_WORKAROUND) -target d -exefslogo -elf $(ELFFILE) -icon $(ICON) -banner $(BANNER)

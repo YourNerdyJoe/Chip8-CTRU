@@ -1,0 +1,45 @@
+#ifndef _CONFIG_MEM_H_
+#define _CONFIG_MEM_H_
+
+/* See http://3dbrew.org/wiki/Configuration_Memory */
+
+/* ARM11 Kernel Configuaration Memory */
+#define REG_KERNEL_		(*(u8*)0x1FF80000)
+#define REG_KERNEL_VERSIONREVISION	(*(u8*)0x1FF80001)
+#define REG_KERNEL_VERSIONMINOR		(*(u8*)0x1FF80002)
+#define REG_KERNEL_VERSIONMAJOR		(*(u8*)0x1FF80003)
+#define REG_UPDATEFLAG	(*(u32*)0x1FF80004)
+#define REG_NSTID	(*(u64*)0x1FF80008)
+#define REG_NSTID_L	(*(u32*)0x1FF80008)
+#define REG_NSTID_H	(*(u32*)0x1FF8000C)
+#define REG_SYSCOREVER	(*(u32*)0x1FF80010)
+#define REG_UNITINFO	(*(u8*)0x1FF80014)
+#define REG_KERNEL_CTRSDKVERSION	(*(u32*)0x1FF80018)
+#define REG_APPMEMTYPE	(*(u32*)0x1FF80030)
+#define REG_APPMEMALLOC	(*(u32*)0x1FF80040)
+#define REG_FIRM_	(*(u4*)0x1FF80060)
+#define REG_FIRM_VERSIONREVISION	(*(u8*)0x1FF80061)
+#define REG_FIRM_VERSIONMINOR		(*(u8*)0x1FF80062)
+#define REG_FIRM_VERSIONMAJOR		(*(u8*)0x1FF80063)
+#define REG_FIRM_SYSCOREVER		(*(u32*)0x1FF80064)
+#define REG_FIRM_CTRSDKVERSION		(*(u32*)0x1FF80068)
+
+/* Shared Memory Page for ARM11 Processes */
+#define REG_WIFI_MACADDR	(*(u64*)0x1FF81060)	/* 6 bytes */
+#define REG_WIFI_MACADDR_L	(*(u32*)0x1FF81060)
+#define REG_WIFI_MACADDR_H	(*(u16*)0x1FF81064)
+#define REG_3D_SLIDERSTATE	(*(float*)0x1FF81080)
+#define REG_3D_LEDSTATE	(*(u8*)0x1FF81084)
+#define REG_MENUTID		(*(u64*)0x1FF810A0)
+#define REG_MENUTID_L	(*(u32*)0x1FF810A0)
+#define REG_MENUTID_H	(*(u32*)0x1FF810A4)
+#define REG_ACTIVEMENUTID	(*(u64*)0x1FF810A8)
+#define REG_ACTIVEMENUTID_L	(*(u32*)0x1FF810A8)
+#define REG_ACTIVEMENUTID_H	(*(u32*)0x1FF810AC)
+
+typedef enum LedState {
+	LED_ENABLED,
+	LED_DISABLED,
+} LedState;
+
+#endif
