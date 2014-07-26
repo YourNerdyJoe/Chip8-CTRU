@@ -8,4 +8,5 @@ Features added:
 - Multi-Rom touch screen menu
 - 3D set-in effect
 
+Add roms to a folder named Chip8 on the root of your sd card.
 See chip8.c for keybindings.
